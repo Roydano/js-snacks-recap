@@ -23,7 +23,6 @@ const maxNum = parseInt(prompt('Inserisci un numero massimo compreso tra 1 e 10 
 const randomNum = (min, max) => Math.floor(Math.random() * max - min + 1) + min;
 
 const numeri = [];
-const rangeNum = [];
 
 for(let i = 0; numeri.length < 10; i++){
     let genNum = randomNum(1, 100);
@@ -34,7 +33,7 @@ for(let i = 0; numeri.length < 10; i++){
 }
 console.log(numeri);
 
-rangeForPrint(numeri, minNum, maxNum);
+const rangeNum = rangeForPrint(numeri, minNum, maxNum);
 
 console.log(rangeNum);
 
@@ -44,11 +43,18 @@ console.log(rangeNum);
 
 function rangeForPrint(array, min, max){
 
+    const resultRangeNum = [];
     array.forEach((element, index) => {
         console.log(index, element);
         if(index >= min && index <= max){
-            rangeNum.push(element)
+            resultRangeNum.push(element)
         }
     });
+    return resultRangeNum;
 
 }
+
+
+//* CON IL FILTER
+
+// const rangeNumConFilter = numeri.filter((element, index) => index >= minNum && index <= maxNum);
